@@ -1,5 +1,6 @@
 ﻿using System;
 using AvaloniaSandbox.Pages.AsyncTest;
+using AvaloniaSandbox.Pages.Welcome;
 using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
 
@@ -12,7 +13,7 @@ public class MainViewModel : ViewModelBase
     public MainViewModel(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
-        SetView(typeof(AsyncTestViewModel));
+        SetView(typeof(WelcomeViewModel));
     }
     
     public ViewModelBase SelectedViewModel

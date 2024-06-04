@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:weatherForecast="clr-namespace:AvaloniaSandbox.Pages.WeatherForecast"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaSandbox.Pages.WeatherForecast.WeatherForecastView"
+             x:DataType="weatherForecast:WeatherForecastViewModel"
+             >
+    <UserControl.Resources>
+        <weatherForecast:TemperatureToColorConverter x:Key="tempToColor"/>
+    </UserControl.Resources>
+    <Grid ColumnDefinitions="100, *">
+        <ListBox ItemsSource="{Binding Cities}" SelectedItem="{Binding SelectedCity, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"></TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Panel Grid.Column="1" IsVisible="{Binding IsLoading}">
+            <TextBlock>Loading...</TextBlock>
+        </Panel>
+        <Panel Grid.Column="1" IsVisible="{Binding !IsLoading}">
+            <StackPanel DataContext="{Binding CurrentForecast}">
+                <TextBlock FontSize="55" Foreground="{Binding Temperature, Converter={StaticResource tempToColor}}">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}{1}">
+                            <Binding Path="Temperature" FallbackValue="21"></Binding>
+                            <Binding Path="TemperatureUnit" FallbackValue="C"></Binding>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}{1}">
+                            <Binding Path="WindSpeed" FallbackValue="21"></Binding>
+                            <Binding Path="WindSpeedUnit" FallbackValue="km/h"></Binding>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock FontSize="25" Text="{Binding CityName, FallbackValue=Kyiv}"></TextBlock>
+            </StackPanel>
+        </Panel>
+    </Grid>
+</UserControl>

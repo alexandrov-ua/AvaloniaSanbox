@@ -5,22 +5,35 @@
              xmlns:vm="clr-namespace:AvaloniaSandbox.ViewModels"
              xmlns:avaloniaSandbox="clr-namespace:AvaloniaSandbox"
              xmlns:asyncTest="clr-namespace:AvaloniaSandbox.Pages.AsyncTest"
+             xmlns:weatherForecast="clr-namespace:AvaloniaSandbox.Pages.WeatherForecast"
+             xmlns:welcome="clr-namespace:AvaloniaSandbox.Pages.Welcome"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AvaloniaSandbox.Views.MainView"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainViewModel />
-  </Design.DataContext>
-    <Grid ColumnDefinitions="1*, 4*">
-        <StackPanel Grid.Column="0">
-            <Button Command="{Binding SetView}" CommandParameter="{x:Type asyncTest:AsyncTestViewModel}">Two</Button>
-        </StackPanel>
-        <ContentControl Grid.Column="1" Content="{Binding SelectedViewModel}">
-            <ContentControl.ContentTemplate>
-                <avaloniaSandbox:ViewLocator/>
-            </ContentControl.ContentTemplate>
-        </ContentControl>
-    </Grid>
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+    <Panel Background="LightGray">
+        <Grid ColumnDefinitions="200, *" RowDefinitions="Auto, *" Margin="0,10,0,10">
+            <TextBlock Margin="0,0,0,5">Pages:</TextBlock>
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                
+                <StackPanel.Styles>
+                    <Style Selector="Button">
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    </Style>
+                </StackPanel.Styles>
+                
+                <Button Command="{Binding SetView}" CommandParameter="{x:Type welcome:WelcomeViewModel}">Welcome</Button>
+                <Button Command="{Binding SetView}" CommandParameter="{x:Type weatherForecast:WeatherForecastViewModel}">WeatherForecast</Button>
+                <Button Command="{Binding SetView}" CommandParameter="{x:Type asyncTest:AsyncTestViewModel}">Async commands test</Button>
+                
+            </StackPanel>
+            <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding SelectedViewModel}">
+                <ContentControl.ContentTemplate>
+                    <avaloniaSandbox:ViewLocator />
+                </ContentControl.ContentTemplate>
+            </ContentControl>
+        </Grid>
+    </Panel>
 </UserControl>

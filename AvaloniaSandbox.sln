@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaSandbox.Services", "AvaloniaSandbox.Services\AvaloniaSandbox.Services.csproj", "{4DD65E94-BDB7-40B0-81D6-DB5D5E8C341C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD65E94-BDB7-40B0-81D6-DB5D5E8C341C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD65E94-BDB7-40B0-81D6-DB5D5E8C341C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD65E94-BDB7-40B0-81D6-DB5D5E8C341C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD65E94-BDB7-40B0-81D6-DB5D5E8C341C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
