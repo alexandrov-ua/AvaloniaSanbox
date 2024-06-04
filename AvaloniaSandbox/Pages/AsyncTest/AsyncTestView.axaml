@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:asyncTest="clr-namespace:AvaloniaSandbox.Pages.AsyncTest"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaSandbox.Pages.AsyncTest.AsyncTestView"
+             x:DataType="asyncTest:AsyncTestViewModel">
+    <StackPanel>
+        <TextBlock Text="{Binding Name}"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Command="{Binding CallAsync}" >CallAsync</Button>    
+            <Button Command="{Binding CallAsync2}">CallAsync2</Button>    
+            <Button Command="{Binding CallAsyncDotWait}">CallAsyncDotWait</Button>    
+            <Button Command="{Binding ReactiveCommandAsync2}">ReactiveCommandAsync2</Button>    
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Command="{Binding CallAsync1Command}">CallAsync1Command canExecute</Button>    
+            <Button Command="{Binding CallAsync2Command}">CallAsync2Command canExecute</Button> 
+            <TextBlock Text="{Binding CanExecute^}"></TextBlock>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
